@@ -58,6 +58,7 @@ if __name__ == "__main__":
                         data["intro2"] = item2["intro"]
                         data["tag"] = gentag(item1["tag"], item2["tag"])  # 判断tag
                         jsonlines.Writer.write(f, data)
+                        print(id)
                     if id > 1000000:
                         sys.exit()
     # try:

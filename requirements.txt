@@ -4,3 +4,5 @@ keras
 numpy
 tqdm
 sklearn
+tensorflow-gpu
+json_lines
