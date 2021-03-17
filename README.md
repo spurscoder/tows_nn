@@ -26,3 +26,7 @@ python train.py
 ```
 python test.py
 ```
+
+# Others
+
+- [albert base model](https://storage.googleapis.com/albert_models/albert_base_zh.tar.gz)
