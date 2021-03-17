@@ -35,14 +35,13 @@ def para():
     drop_rate = 0.5
 
     # bert配置
-    config_path = "./albert_base/albert_config.json"
-    checkpoint_path = "./albert_base/model.ckpt-best"
-    dict_path = "./albert_base/vocab.txt"
+    config_path = "/home/user2/albert_base/albert_config.json"
+    checkpoint_path = "/home/user2/albert_base/model.ckpt-best"
+    dict_path = "/home/user2/albert_base/vocab.txt"
     a = set()
-    with open("./dataset/ws6.jl", "r") as f:
+    with open("/home/user2/webservicefile/ws5.jl.txt", "r") as f:
         for item in json_lines.reader(f):
-            for tag in item["tag"]:
-                a.add(tag)
+            a.add(item["tag"])
     labels = list(a)
     id2label = dict(enumerate(labels))
     label2id = {j: i for i, j in id2label.items()}
@@ -53,12 +52,11 @@ def load_file(filename):
     D = []
     with open(filename, "r") as f:
         for item in json_lines.reader(f):
-            for tag in item["tag"]:
-                apiintro1, apiintro2, label = item["intro1"], item["intro2"], tag
-                #                 d=[]
-                #                 d.append(item['name']+'/t/t'+item['intro'])
-                #                 d.append(tag)
-                D.append((apiintro1, apiintro2, label2id[label]))
+            apiintro1, apiintro2, label = item["intro1"], item["intro2"], tag["tag"]
+            #                 d=[]
+            #                 d.append(item['name']+'/t/t'+item['intro'])
+            #                 d.append(tag)
+            D.append((apiintro1, apiintro2, label2id[label]))
     return D
 
 
@@ -84,7 +82,7 @@ class data_generator(DataGenerator):
 def evaluate(data):
     total, right = 0.0, 0.0
     for x_true, y_true in data:
-        y_pred = model.predict(x_true).argsort(axis=1, kind="heapsort")[:, ::-1][:, :5]
+        y_pred = model.predict(x_true).argsort(axis=1, kind="heapsort")[:, ::-1][:, :1]
         y_true = y_true[:, 0]
         total += len(y_true)
         for inx, tag in enumerate(y_true):
@@ -114,7 +112,7 @@ class Evaluator(keras.callbacks.Callback):
 
 def main():
     para()
-    wsdata = load_file("./dataset/ws6.jl")
+    wsdata = load_file("/home/user2/webservicefile/ws5.jl.txt")
 
     train_set, test_data = train_test_split(wsdata, test_size=0.05, random_state=30)
     train_data, valid_data = train_test_split(
