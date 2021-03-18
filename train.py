@@ -41,15 +41,16 @@ train_generator=0
 valid_generator=0
 test_generator=0
 
+# bert配置
+config_path = "/home/user2/albert_base/albert_config.json"
+checkpoint_path = "/home/user2/albert_base/model.ckpt-best"
+dict_path = "/home/user2/albert_base/vocab.txt"
+
 def para():
     global label2id
     global num_labels
     global labels
     global id2label
-    # bert配置
-    config_path = "/home/user2/albert_base/albert_config.json"
-    checkpoint_path = "/home/user2/albert_base/model.ckpt-best"
-    dict_path = "/home/user2/albert_base/vocab.txt"
     a = set()
     with open("/home/user2/webservicefile/ws5.jl.txt", "r") as f:
         for item in json_lines.reader(f):
