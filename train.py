@@ -52,8 +52,8 @@ test_generator=0
 logdir =''
 tensorboard_callback = 0
 # bert配置
-config_path = "/home/user2/albert_base/albert_config.json"
-checkpoint_path = "/home/user2/albert_base/model.ckpt-best"
+config_path = "/home/user2/albert_base/bert_config.json"
+checkpoint_path = "/home/user2/albert_base/bert_model.ckpt"
 dict_path = "/home/user2/albert_base/vocab.txt"
 
 def para():
@@ -153,10 +153,10 @@ def main():
     # 建立分词器
     tokenizer = Tokenizer(dict_path, do_lower_case=True)
 
-    model = build_transformer_model(config_path, checkpoint_path, model="albert")
-    output_layer = "Transformer-FeedForward-Norm"
-    output = model.get_layer(output_layer).get_output_at(bert_layers - 1)
-    print("albert last layer shape: {output.shape}")
+    model = build_transformer_model(config_path, checkpoint_path)
+    output_layer = 'Transformer-%s-FeedForward-Norm' % (bert_layers - 1)  
+    output = model.get_layer(output_layer).output
+    print(f"bert last layer shape: {output.shape}")
 
     output = LSTM(units=rnn_units, return_sequences=True)(output)
     output = LSTM(units=rnn_units, return_sequences=False, go_backwards=True)(output)
