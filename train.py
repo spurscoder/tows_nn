@@ -21,19 +21,31 @@ from tqdm import tqdm
 from sklearn.model_selection import train_test_split
 from keras.layers import Bidirectional, LSTM, Dense, Dropout
 
+set_gelu = "tanh"
+maxlen = 512
+epochs = 60
+batch_size = 16
+bert_layers = 12
+learing_rate = 1e-5  # bert_layers越小，学习率应该要越大
+
+rnn_units = 128
+drop_rate = 0.5
+labels=[]
+id2label={}
+label2id={}
+num_labels=0
+
+model=0
+tokenizer = 0
+train_generator=0
+valid_generator=0
+test_generator=0
 
 def para():
-    set_gelu = "tanh"
-
-    maxlen = 512
-    epochs = 60
-    batch_size = 16
-    bert_layers = 12
-    learing_rate = 1e-5  # bert_layers越小，学习率应该要越大
-
-    rnn_units = 128
-    drop_rate = 0.5
-
+    global label2id
+    global num_labels
+    global labels
+    global id2label
     # bert配置
     config_path = "/home/user2/albert_base/albert_config.json"
     checkpoint_path = "/home/user2/albert_base/model.ckpt-best"
@@ -52,7 +64,7 @@ def load_file(filename):
     D = []
     with open(filename, "r") as f:
         for item in json_lines.reader(f):
-            apiintro1, apiintro2, label = item["intro1"], item["intro2"], tag["tag"]
+            apiintro1, apiintro2, label = item["intro1"], item["intro2"], item["tag"]
             #                 d=[]
             #                 d.append(item['name']+'/t/t'+item['intro'])
             #                 d.append(tag)
@@ -65,6 +77,7 @@ class data_generator(DataGenerator):
     """
 
     def __iter__(self, random=False):
+        global tokenizer
         batch_token_ids, batch_segment_ids, batch_labels = [], [], []
         for is_end, (text1, text2, label) in self.sample(random):
             token_ids, segment_ids = tokenizer.encode(text1, text2, maxlen=maxlen)
@@ -115,14 +128,15 @@ def main():
     wsdata = load_file("/home/user2/webservicefile/ws5.jl.txt")
 
     train_set, test_data = train_test_split(wsdata, test_size=0.05, random_state=30)
-    train_data, valid_data = train_test_split(
-        train_set, test_size=0.05, random_state=30
-    )
+    train_data, valid_data = train_test_split(train_set, test_size=0.05, random_state=30)
 
-    print(
-        f"{'train':<6}: {len(train_data)}\n{'val':<6}: {len(valid_data)}\n{'test':<6}: {len(test_data)}"
-    )
+    print(f"{'train':<6}: {len(train_data)}\n{'val':<6}: {len(valid_data)}\n{'test':<6}: {len(test_data)}")
 
+    global tokenizer
+    global model
+    global train_generator
+    global valid_generator
+    global test_generator
     # 建立分词器
     tokenizer = Tokenizer(dict_path, do_lower_case=True)
 
