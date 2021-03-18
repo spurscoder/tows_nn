@@ -8,6 +8,7 @@ import bert4keras
 import keras
 import json_lines
 import numpy as np
+import tensorflow as tf
 from bert4keras.backend import keras, K
 from bert4keras.models import build_transformer_model
 from bert4keras.tokenizers import Tokenizer
@@ -20,6 +21,12 @@ from keras.models import Model
 from tqdm import tqdm
 from sklearn.model_selection import train_test_split
 from keras.layers import Bidirectional, LSTM, Dense, Dropout
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+from datetime import datetime
+from packaging import version
 
 set_gelu = "tanh"
 maxlen = 512
@@ -41,6 +48,9 @@ train_generator=0
 valid_generator=0
 test_generator=0
 
+#日志文件目录
+logdir =''
+tensorboard_callback = 0
 # bert配置
 config_path = "/home/user2/albert_base/albert_config.json"
 checkpoint_path = "/home/user2/albert_base/model.ckpt-best"
@@ -138,6 +148,8 @@ def main():
     global train_generator
     global valid_generator
     global test_generator
+    global tensorboard_callback
+    global logdir
     # 建立分词器
     tokenizer = Tokenizer(dict_path, do_lower_case=True)
 
@@ -168,11 +180,13 @@ def main():
 
     evaluator = Evaluator()
 
+    logdir = "logs/scalars/" + datetime.now().strftime("%Y%m%d-%H%M%S")
+    tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
     model.fit_generator(
         train_generator.forfit(),
         steps_per_epoch=len(train_generator),
         epochs=60,
-        callbacks=[evaluator],
+        callbacks=[evaluator, tensorboard_callback],
     )
 
     model.load_weights("3_best_model.weights")
