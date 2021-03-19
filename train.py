@@ -87,7 +87,7 @@ class data_generator(DataGenerator):
     """数据生成器
     """
 
-    def __iter__(self, random=False):
+    def __iter__(self, random=True):
         global tokenizer
         batch_token_ids, batch_segment_ids, batch_labels = [], [], []
         for is_end, (text1, text2, label) in self.sample(random):
