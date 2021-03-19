@@ -1,0 +1,500 @@
+Using TensorFlow backend.
+WARNING:tensorflow:From /ssd1/exec/wangjp/tools/miniconda/envs/torch-dev/lib/python3.6/site-packages/tensorflow_core/python/ops/resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+2021-03-19 13:56:22.323750: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2021-03-19 13:56:22.522957: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:04:00.0
+2021-03-19 13:56:22.525106: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 1 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:05:00.0
+2021-03-19 13:56:22.527883: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 2 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:08:00.0
+2021-03-19 13:56:22.531526: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 3 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:09:00.0
+2021-03-19 13:56:22.532728: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2021-03-19 13:56:22.538004: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+2021-03-19 13:56:22.542557: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10.0
+2021-03-19 13:56:22.543767: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10.0
+2021-03-19 13:56:22.549967: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10.0
+2021-03-19 13:56:22.555035: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10.0
+2021-03-19 13:56:22.567672: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-03-19 13:56:22.608016: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0, 1, 2, 3
+2021-03-19 13:56:22.609030: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2021-03-19 13:56:22.633987: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2400075000 Hz
+2021-03-19 13:56:22.637146: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55b8647c1620 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-03-19 13:56:22.637179: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-03-19 13:56:23.438521: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55b8647ce300 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-03-19 13:56:23.438581: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2021-03-19 13:56:23.438592: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): GeForce GTX 1080 Ti, Compute Capability 6.1
+2021-03-19 13:56:23.438599: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): GeForce GTX 1080 Ti, Compute Capability 6.1
+2021-03-19 13:56:23.438606: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): GeForce GTX 1080 Ti, Compute Capability 6.1
+2021-03-19 13:56:23.449451: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:04:00.0
+2021-03-19 13:56:23.451704: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 1 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:05:00.0
+2021-03-19 13:56:23.454520: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 2 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:08:00.0
+2021-03-19 13:56:23.457173: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 3 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:09:00.0
+2021-03-19 13:56:23.457246: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2021-03-19 13:56:23.457280: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+2021-03-19 13:56:23.457308: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10.0
+2021-03-19 13:56:23.457335: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10.0
+2021-03-19 13:56:23.457362: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10.0
+2021-03-19 13:56:23.457389: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10.0
+2021-03-19 13:56:23.457417: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-03-19 13:56:23.476335: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0, 1, 2, 3
+2021-03-19 13:56:23.476405: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2021-03-19 13:56:23.486353: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-19 13:56:23.486390: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0 1 2 3 
+2021-03-19 13:56:23.486409: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N Y Y Y 
+2021-03-19 13:56:23.486421: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 1:   Y N Y Y 
+2021-03-19 13:56:23.486432: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 2:   Y Y N Y 
+2021-03-19 13:56:23.486442: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 3:   Y Y Y N 
+2021-03-19 13:56:23.497163: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10481 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:04:00.0, compute capability: 6.1)
+2021-03-19 13:56:23.500226: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10481 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:05:00.0, compute capability: 6.1)
+2021-03-19 13:56:23.503218: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 10481 MB memory) -> physical GPU (device: 2, name: GeForce GTX 1080 Ti, pci bus id: 0000:08:00.0, compute capability: 6.1)
+2021-03-19 13:56:23.506137: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 10481 MB memory) -> physical GPU (device: 3, name: GeForce GTX 1080 Ti, pci bus id: 0000:09:00.0, compute capability: 6.1)
+WARNING:tensorflow:From /ssd1/exec/wangjp/tools/miniconda/envs/torch-dev/lib/python3.6/site-packages/tensorflow_core/python/keras/backend.py:3994: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From /ssd1/exec/wangjp/tools/miniconda/envs/torch-dev/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:422: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /ssd1/exec/wangjp/tools/miniconda/envs/torch-dev/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:200: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
+
+WARNING:tensorflow:From /ssd1/exec/wangjp/tools/miniconda/envs/torch-dev/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:203: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
+
+2021-03-19 13:58:05.790056: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+train : 902500
+val   : 47500
+test  : 50001
+bert last layer shape: (?, ?, 768)
+lstm layer shape: {output.shape}
+dense shape: {output.shape}
+Model: "model_2"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+Input-Token (InputLayer)        (None, None)         0                                            
+__________________________________________________________________________________________________
+Input-Segment (InputLayer)      (None, None)         0                                            
+__________________________________________________________________________________________________
+Embedding-Token (Embedding)     (None, None, 768)    23440896    Input-Token[0][0]                
+__________________________________________________________________________________________________
+Embedding-Segment (Embedding)   (None, None, 768)    1536        Input-Segment[0][0]              
+__________________________________________________________________________________________________
+Embedding-Token-Segment (Add)   (None, None, 768)    0           Embedding-Token[0][0]            
+                                                                 Embedding-Segment[0][0]          
+__________________________________________________________________________________________________
+Embedding-Position (PositionEmb (None, None, 768)    393216      Embedding-Token-Segment[0][0]    
+__________________________________________________________________________________________________
+Embedding-Norm (LayerNormalizat (None, None, 768)    1536        Embedding-Position[0][0]         
+__________________________________________________________________________________________________
+Embedding-Dropout (Dropout)     (None, None, 768)    0           Embedding-Norm[0][0]             
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 768)    2362368     Embedding-Dropout[0][0]          
+                                                                 Embedding-Dropout[0][0]          
+                                                                 Embedding-Dropout[0][0]          
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 768)    0           Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 768)    0           Embedding-Dropout[0][0]          
+                                                                 Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-FeedForward (Feed (None, None, 768)    4722432     Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-FeedForward-Dropo (None, None, 768)    0           Transformer-0-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-0-FeedForward-Add ( (None, None, 768)    0           Transformer-0-MultiHeadSelfAttent
+                                                                 Transformer-0-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-0-FeedForward-Norm  (None, None, 768)    1536        Transformer-0-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 768)    2362368     Transformer-0-FeedForward-Norm[0]
+                                                                 Transformer-0-FeedForward-Norm[0]
+                                                                 Transformer-0-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 768)    0           Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 768)    0           Transformer-0-FeedForward-Norm[0]
+                                                                 Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-FeedForward (Feed (None, None, 768)    4722432     Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-FeedForward-Dropo (None, None, 768)    0           Transformer-1-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-1-FeedForward-Add ( (None, None, 768)    0           Transformer-1-MultiHeadSelfAttent
+                                                                 Transformer-1-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-1-FeedForward-Norm  (None, None, 768)    1536        Transformer-1-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 768)    2362368     Transformer-1-FeedForward-Norm[0]
+                                                                 Transformer-1-FeedForward-Norm[0]
+                                                                 Transformer-1-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 768)    0           Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 768)    0           Transformer-1-FeedForward-Norm[0]
+                                                                 Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-FeedForward (Feed (None, None, 768)    4722432     Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-FeedForward-Dropo (None, None, 768)    0           Transformer-2-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-2-FeedForward-Add ( (None, None, 768)    0           Transformer-2-MultiHeadSelfAttent
+                                                                 Transformer-2-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-2-FeedForward-Norm  (None, None, 768)    1536        Transformer-2-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 768)    2362368     Transformer-2-FeedForward-Norm[0]
+                                                                 Transformer-2-FeedForward-Norm[0]
+                                                                 Transformer-2-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 768)    0           Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 768)    0           Transformer-2-FeedForward-Norm[0]
+                                                                 Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-FeedForward (Feed (None, None, 768)    4722432     Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-FeedForward-Dropo (None, None, 768)    0           Transformer-3-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-3-FeedForward-Add ( (None, None, 768)    0           Transformer-3-MultiHeadSelfAttent
+                                                                 Transformer-3-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-3-FeedForward-Norm  (None, None, 768)    1536        Transformer-3-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 768)    2362368     Transformer-3-FeedForward-Norm[0]
+                                                                 Transformer-3-FeedForward-Norm[0]
+                                                                 Transformer-3-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 768)    0           Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 768)    0           Transformer-3-FeedForward-Norm[0]
+                                                                 Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-FeedForward (Feed (None, None, 768)    4722432     Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-FeedForward-Dropo (None, None, 768)    0           Transformer-4-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-4-FeedForward-Add ( (None, None, 768)    0           Transformer-4-MultiHeadSelfAttent
+                                                                 Transformer-4-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-4-FeedForward-Norm  (None, None, 768)    1536        Transformer-4-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 768)    2362368     Transformer-4-FeedForward-Norm[0]
+                                                                 Transformer-4-FeedForward-Norm[0]
+                                                                 Transformer-4-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 768)    0           Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 768)    0           Transformer-4-FeedForward-Norm[0]
+                                                                 Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-FeedForward (Feed (None, None, 768)    4722432     Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-FeedForward-Dropo (None, None, 768)    0           Transformer-5-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-5-FeedForward-Add ( (None, None, 768)    0           Transformer-5-MultiHeadSelfAttent
+                                                                 Transformer-5-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-5-FeedForward-Norm  (None, None, 768)    1536        Transformer-5-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-6-MultiHeadSelfAtte (None, None, 768)    2362368     Transformer-5-FeedForward-Norm[0]
+                                                                 Transformer-5-FeedForward-Norm[0]
+                                                                 Transformer-5-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-6-MultiHeadSelfAtte (None, None, 768)    0           Transformer-6-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-6-MultiHeadSelfAtte (None, None, 768)    0           Transformer-5-FeedForward-Norm[0]
+                                                                 Transformer-6-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-6-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-6-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-6-FeedForward (Feed (None, None, 768)    4722432     Transformer-6-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-6-FeedForward-Dropo (None, None, 768)    0           Transformer-6-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-6-FeedForward-Add ( (None, None, 768)    0           Transformer-6-MultiHeadSelfAttent
+                                                                 Transformer-6-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-6-FeedForward-Norm  (None, None, 768)    1536        Transformer-6-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-7-MultiHeadSelfAtte (None, None, 768)    2362368     Transformer-6-FeedForward-Norm[0]
+                                                                 Transformer-6-FeedForward-Norm[0]
+                                                                 Transformer-6-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-7-MultiHeadSelfAtte (None, None, 768)    0           Transformer-7-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-7-MultiHeadSelfAtte (None, None, 768)    0           Transformer-6-FeedForward-Norm[0]
+                                                                 Transformer-7-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-7-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-7-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-7-FeedForward (Feed (None, None, 768)    4722432     Transformer-7-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-7-FeedForward-Dropo (None, None, 768)    0           Transformer-7-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-7-FeedForward-Add ( (None, None, 768)    0           Transformer-7-MultiHeadSelfAttent
+                                                                 Transformer-7-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-7-FeedForward-Norm  (None, None, 768)    1536        Transformer-7-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-8-MultiHeadSelfAtte (None, None, 768)    2362368     Transformer-7-FeedForward-Norm[0]
+                                                                 Transformer-7-FeedForward-Norm[0]
+                                                                 Transformer-7-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-8-MultiHeadSelfAtte (None, None, 768)    0           Transformer-8-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-8-MultiHeadSelfAtte (None, None, 768)    0           Transformer-7-FeedForward-Norm[0]
+                                                                 Transformer-8-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-8-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-8-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-8-FeedForward (Feed (None, None, 768)    4722432     Transformer-8-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-8-FeedForward-Dropo (None, None, 768)    0           Transformer-8-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-8-FeedForward-Add ( (None, None, 768)    0           Transformer-8-MultiHeadSelfAttent
+                                                                 Transformer-8-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-8-FeedForward-Norm  (None, None, 768)    1536        Transformer-8-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-9-MultiHeadSelfAtte (None, None, 768)    2362368     Transformer-8-FeedForward-Norm[0]
+                                                                 Transformer-8-FeedForward-Norm[0]
+                                                                 Transformer-8-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-9-MultiHeadSelfAtte (None, None, 768)    0           Transformer-9-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-9-MultiHeadSelfAtte (None, None, 768)    0           Transformer-8-FeedForward-Norm[0]
+                                                                 Transformer-9-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-9-MultiHeadSelfAtte (None, None, 768)    1536        Transformer-9-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-9-FeedForward (Feed (None, None, 768)    4722432     Transformer-9-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-9-FeedForward-Dropo (None, None, 768)    0           Transformer-9-FeedForward[0][0]  
+__________________________________________________________________________________________________
+Transformer-9-FeedForward-Add ( (None, None, 768)    0           Transformer-9-MultiHeadSelfAttent
+                                                                 Transformer-9-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-9-FeedForward-Norm  (None, None, 768)    1536        Transformer-9-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-10-MultiHeadSelfAtt (None, None, 768)    2362368     Transformer-9-FeedForward-Norm[0]
+                                                                 Transformer-9-FeedForward-Norm[0]
+                                                                 Transformer-9-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+Transformer-10-MultiHeadSelfAtt (None, None, 768)    0           Transformer-10-MultiHeadSelfAtten
+__________________________________________________________________________________________________
+Transformer-10-MultiHeadSelfAtt (None, None, 768)    0           Transformer-9-FeedForward-Norm[0]
+                                                                 Transformer-10-MultiHeadSelfAtten
+__________________________________________________________________________________________________
+Transformer-10-MultiHeadSelfAtt (None, None, 768)    1536        Transformer-10-MultiHeadSelfAtten
+__________________________________________________________________________________________________
+Transformer-10-FeedForward (Fee (None, None, 768)    4722432     Transformer-10-MultiHeadSelfAtten
+__________________________________________________________________________________________________
+Transformer-10-FeedForward-Drop (None, None, 768)    0           Transformer-10-FeedForward[0][0] 
+__________________________________________________________________________________________________
+Transformer-10-FeedForward-Add  (None, None, 768)    0           Transformer-10-MultiHeadSelfAtten
+                                                                 Transformer-10-FeedForward-Dropou
+__________________________________________________________________________________________________
+Transformer-10-FeedForward-Norm (None, None, 768)    1536        Transformer-10-FeedForward-Add[0]
+__________________________________________________________________________________________________
+Transformer-11-MultiHeadSelfAtt (None, None, 768)    2362368     Transformer-10-FeedForward-Norm[0
+                                                                 Transformer-10-FeedForward-Norm[0
+                                                                 Transformer-10-FeedForward-Norm[0
+__________________________________________________________________________________________________
+Transformer-11-MultiHeadSelfAtt (None, None, 768)    0           Transformer-11-MultiHeadSelfAtten
+__________________________________________________________________________________________________
+Transformer-11-MultiHeadSelfAtt (None, None, 768)    0           Transformer-10-FeedForward-Norm[0
+                                                                 Transformer-11-MultiHeadSelfAtten
+__________________________________________________________________________________________________
+Transformer-11-MultiHeadSelfAtt (None, None, 768)    1536        Transformer-11-MultiHeadSelfAtten
+__________________________________________________________________________________________________
+Transformer-11-FeedForward (Fee (None, None, 768)    4722432     Transformer-11-MultiHeadSelfAtten
+__________________________________________________________________________________________________
+Transformer-11-FeedForward-Drop (None, None, 768)    0           Transformer-11-FeedForward[0][0] 
+__________________________________________________________________________________________________
+Transformer-11-FeedForward-Add  (None, None, 768)    0           Transformer-11-MultiHeadSelfAtten
+                                                                 Transformer-11-FeedForward-Dropou
+__________________________________________________________________________________________________
+Transformer-11-FeedForward-Norm (None, None, 768)    1536        Transformer-11-FeedForward-Add[0]
+__________________________________________________________________________________________________
+lstm_1 (LSTM)                   (None, None, 128)    459264      Transformer-11-FeedForward-Norm[0
+__________________________________________________________________________________________________
+lstm_2 (LSTM)                   (None, 128)          131584      lstm_1[0][0]                     
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, 128)          0           lstm_2[0][0]                     
+__________________________________________________________________________________________________
+dense_73 (Dense)                (None, 2)            258         dropout_1[0][0]                  
+__________________________________________________________________________________________________
+dense_74 (Dense)                (None, 2)            6           dense_73[0][0]                   
+==================================================================================================
+Total params: 109,482,760
+Trainable params: 109,482,760
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/10
+
+     1/112813 [..............................] - ETA: 1277:47:32 - loss: 0.7209 - accuracy: 0.5000
+     2/112813 [..............................] - ETA: 663:43:21 - loss: 0.6760 - accuracy: 0.6250 
+     3/112813 [..............................] - ETA: 457:17:22 - loss: 0.6021 - accuracy: 0.7500
+     4/112813 [..............................] - ETA: 354:21:53 - loss: 0.5636 - accuracy: 0.7500
+     5/112813 [..............................] - ETA: 292:04:20 - loss: 0.5203 - accuracy: 0.8000
+     6/112813 [..............................] - ETA: 251:30:44 - loss: 0.5014 - accuracy: 0.8125
+     7/112813 [..............................] - ETA: 223:01:46 - loss: 0.4605 - accuracy: 0.8393
+     8/112813 [..............................] - ETA: 201:10:25 - loss: 0.4925 - accuracy: 0.8281
+     9/112813 [..............................] - ETA: 183:44:23 - loss: 0.4495 - accuracy: 0.8472
+    10/112813 [..............................] - ETA: 169:27:54 - loss: 0.4501 - accuracy: 0.8500
+    11/112813 [..............................] - ETA: 157:31:17 - loss: 0.4191 - accuracy: 0.8636
+    12/112813 [..............................] - ETA: 148:32:36 - loss: 0.3921 - accuracy: 0.8750
+    13/112813 [..............................] - ETA: 141:03:16 - loss: 0.3958 - accuracy: 0.8750
+    14/112813 [..............................] - ETA: 133:59:41 - loss: 0.3737 - accuracy: 0.8839
+    15/112813 [..............................] - ETA: 127:37:25 - loss: 0.3537 - accuracy: 0.8917
+    16/112813 [..............................] - ETA: 122:46:44 - loss: 0.3363 - accuracy: 0.8984
+    17/112813 [..............................] - ETA: 118:08:35 - loss: 0.3619 - accuracy: 0.8897
+    18/112813 [..............................] - ETA: 114:08:10 - loss: 0.3455 - accuracy: 0.8958
+    19/112813 [..............................] - ETA: 110:22:10 - loss: 0.3768 - accuracy: 0.8882
+    20/112813 [..............................] - ETA: 106:47:45 - loss: 0.3613 - accuracy: 0.8938
+    21/112813 [..............................] - ETA: 103:57:29 - loss: 0.3588 - accuracy: 0.8929
+    22/112813 [..............................] - ETA: 100:44:00 - loss: 0.3585 - accuracy: 0.8920
+    23/112813 [..............................] - ETA: 98:22:28 - loss: 0.3593 - accuracy: 0.8913 
+    24/112813 [..............................] - ETA: 96:22:56 - loss: 0.3920 - accuracy: 0.8854
+    25/112813 [..............................] - ETA: 94:19:31 - loss: 0.3787 - accuracy: 0.8900
+    26/112813 [..............................] - ETA: 92:33:09 - loss: 0.3665 - accuracy: 0.8942
+    27/112813 [..............................] - ETA: 90:43:19 - loss: 0.3551 - accuracy: 0.8981
+    28/112813 [..............................] - ETA: 88:43:58 - loss: 0.3444 - accuracy: 0.9018
+    29/112813 [..............................] - ETA: 87:12:28 - loss: 0.3344 - accuracy: 0.9052
+    30/112813 [..............................] - ETA: 85:38:12 - loss: 0.3255 - accuracy: 0.9083
+    31/112813 [..............................] - ETA: 84:10:15 - loss: 0.3168 - accuracy: 0.9113
+    32/112813 [..............................] - ETA: 82:53:26 - loss: 0.3083 - accuracy: 0.9141
+    33/112813 [..............................] - ETA: 81:36:02 - loss: 0.3005 - accuracy: 0.9167
+    34/112813 [..............................] - ETA: 80:15:37 - loss: 0.2930 - accuracy: 0.9191
+    35/112813 [..............................] - ETA: 80:22:12 - loss: 0.2977 - accuracy: 0.9179
+    36/112813 [..............................] - ETA: 79:30:45 - loss: 0.2951 - accuracy: 0.9167
+    37/112813 [..............................] - ETA: 78:40:09 - loss: 0.2884 - accuracy: 0.9189
+    38/112813 [..............................] - ETA: 77:37:32 - loss: 0.2826 - accuracy: 0.9211
+    39/112813 [..............................] - ETA: 76:40:13 - loss: 0.2767 - accuracy: 0.9231
+    40/112813 [..............................] - ETA: 75:53:33 - loss: 0.2708 - accuracy: 0.9250
+    41/112813 [..............................] - ETA: 75:03:54 - loss: 0.2653 - accuracy: 0.9268
+    42/112813 [..............................] - ETA: 74:24:55 - loss: 0.2602 - accuracy: 0.9286
+    43/112813 [..............................] - ETA: 73:39:54 - loss: 0.2660 - accuracy: 0.9273
+    44/112813 [..............................] - ETA: 72:49:35 - loss: 0.2692 - accuracy: 0.9261
+    45/112813 [..............................] - ETA: 72:06:35 - loss: 0.2734 - accuracy: 0.9250
+    46/112813 [..............................] - ETA: 71:25:05 - loss: 0.2684 - accuracy: 0.9266
+    47/112813 [..............................] - ETA: 70:43:15 - loss: 0.2636 - accuracy: 0.9282
+    48/112813 [..............................] - ETA: 70:06:14 - loss: 0.2788 - accuracy: 0.9245
+    49/112813 [..............................] - ETA: 69:27:34 - loss: 0.2742 - accuracy: 0.9260
+    50/112813 [..............................] - ETA: 69:07:01 - loss: 0.2796 - accuracy: 0.9250
+    51/112813 [..............................] - ETA: 68:42:07 - loss: 0.2749 - accuracy: 0.9265
+    52/112813 [..............................] - ETA: 68:13:49 - loss: 0.2786 - accuracy: 0.9255
+    53/112813 [..............................] - ETA: 67:48:33 - loss: 0.2740 - accuracy: 0.9269
+    54/112813 [..............................] - ETA: 67:21:43 - loss: 0.2699 - accuracy: 0.9282
+    55/112813 [..............................] - ETA: 66:51:06 - loss: 0.2660 - accuracy: 0.9295
+    56/112813 [..............................] - ETA: 66:34:38 - loss: 0.2623 - accuracy: 0.9308
+    57/112813 [..............................] - ETA: 66:14:45 - loss: 0.2584 - accuracy: 0.9320
+    58/112813 [..............................] - ETA: 65:44:18 - loss: 0.2601 - accuracy: 0.9310
+    59/112813 [..............................] - ETA: 65:21:39 - loss: 0.2568 - accuracy: 0.9322
+    60/112813 [..............................] - ETA: 64:57:25 - loss: 0.2532 - accuracy: 0.9333
+    61/112813 [..............................] - ETA: 64:41:11 - loss: 0.2498 - accuracy: 0.9344
+    62/112813 [..............................] - ETA: 64:17:20 - loss: 0.2463 - accuracy: 0.9355
+    63/112813 [..............................] - ETA: 64:00:00 - loss: 0.2430 - accuracy: 0.9365
+    64/112813 [..............................] - ETA: 63:52:34 - loss: 0.2400 - accuracy: 0.9375
+    65/112813 [..............................] - ETA: 63:50:26 - loss: 0.2370 - accuracy: 0.9385
+    66/112813 [..............................] - ETA: 63:27:17 - loss: 0.2339 - accuracy: 0.9394
+    67/112813 [..............................] - ETA: 63:06:08 - loss: 0.2309 - accuracy: 0.9403
+    68/112813 [..............................] - ETA: 62:50:58 - loss: 0.2279 - accuracy: 0.9412
+    69/112813 [..............................] - ETA: 62:29:49 - loss: 0.2252 - accuracy: 0.9420
+    70/112813 [..............................] - ETA: 62:13:21 - loss: 0.2225 - accuracy: 0.9429
+    71/112813 [..............................] - ETA: 61:55:40 - loss: 0.2327 - accuracy: 0.9401
+    72/112813 [..............................] - ETA: 61:55:46 - loss: 0.2300 - accuracy: 0.9410
+    73/112813 [..............................] - ETA: 61:32:08 - loss: 0.2395 - accuracy: 0.9384
+    74/112813 [..............................] - ETA: 61:20:13 - loss: 0.2368 - accuracy: 0.9392
+    75/112813 [..............................] - ETA: 61:07:48 - loss: 0.2340 - accuracy: 0.9400
+    76/112813 [..............................] - ETA: 60:51:25 - loss: 0.2360 - accuracy: 0.9391
+    77/112813 [..............................] - ETA: 60:42:35 - loss: 0.2399 - accuracy: 0.9383
+    78/112813 [..............................] - ETA: 60:40:46 - loss: 0.2375 - accuracy: 0.9391
+    79/112813 [..............................] - ETA: 60:26:51 - loss: 0.2348 - accuracy: 0.9399
+    80/112813 [..............................] - ETA: 60:09:48 - loss: 0.2322 - accuracy: 0.9406
+    81/112813 [..............................] - ETA: 59:55:46 - loss: 0.2343 - accuracy: 0.9398
+    82/112813 [..............................] - ETA: 59:46:25 - loss: 0.2377 - accuracy: 0.9390
+    83/112813 [..............................] - ETA: 59:32:31 - loss: 0.2353 - accuracy: 0.9398
+    84/112813 [..............................] - ETA: 59:21:51 - loss: 0.2329 - accuracy: 0.9405
+    85/112813 [..............................] - ETA: 59:06:16 - loss: 0.2308 - accuracy: 0.9412
+    86/112813 [..............................] - ETA: 58:55:05 - loss: 0.2288 - accuracy: 0.9419
+    87/112813 [..............................] - ETA: 58:42:07 - loss: 0.2271 - accuracy: 0.9425
+    88/112813 [..............................] - ETA: 58:31:57 - loss: 0.2296 - accuracy: 0.9418
+    89/112813 [..............................] - ETA: 58:20:11 - loss: 0.2316 - accuracy: 0.9410
+    90/112813 [..............................] - ETA: 58:16:22 - loss: 0.2327 - accuracy: 0.9403
+    91/112813 [..............................] - ETA: 58:05:19 - loss: 0.2331 - accuracy: 0.9396
+    92/112813 [..............................] - ETA: 57:57:48 - loss: 0.2317 - accuracy: 0.9402
+    93/112813 [..............................] - ETA: 57:45:47 - loss: 0.2298 - accuracy: 0.9409
+    94/112813 [..............................] - ETA: 57:46:55 - loss: 0.2315 - accuracy: 0.9402
+    95/112813 [..............................] - ETA: 57:36:48 - loss: 0.2298 - accuracy: 0.9408
+    96/112813 [..............................] - ETA: 57:28:46 - loss: 0.2313 - accuracy: 0.9401
+    97/112813 [..............................] - ETA: 57:20:16 - loss: 0.2350 - accuracy: 0.9394
+    98/112813 [..............................] - ETA: 57:07:48 - loss: 0.2332 - accuracy: 0.9401
+    99/112813 [..............................] - ETA: 57:00:27 - loss: 0.2349 - accuracy: 0.9394
+   100/112813 [..............................] - ETA: 56:53:34 - loss: 0.2441 - accuracy: 0.9362
+   101/112813 [..............................] - ETA: 56:48:40 - loss: 0.2425 - accuracy: 0.9369
+   102/112813 [..............................] - ETA: 56:41:19 - loss: 0.2456 - accuracy: 0.9363
+   103/112813 [..............................] - ETA: 56:37:38 - loss: 0.2443 - accuracy: 0.9369
+   104/112813 [..............................] - ETA: 56:35:26 - loss: 0.2453 - accuracy: 0.9363
+   105/112813 [..............................] - ETA: 56:33:37 - loss: 0.2466 - accuracy: 0.9357
+   106/112813 [..............................] - ETA: 56:24:20 - loss: 0.2452 - accuracy: 0.9363
+   107/112813 [..............................] - ETA: 56:13:29 - loss: 0.2439 - accuracy: 0.9369
+   108/112813 [..............................] - ETA: 56:09:25 - loss: 0.2424 - accuracy: 0.9375
+   109/112813 [..............................] - ETA: 56:05:30 - loss: 0.2459 - accuracy: 0.9358
+   110/112813 [..............................] - ETA: 55:59:20 - loss: 0.2446 - accuracy: 0.9364
+   111/112813 [..............................] - ETA: 55:53:58 - loss: 0.2498 - accuracy: 0.9347
+   112/112813 [..............................] - ETA: 55:46:37 - loss: 0.2518 - accuracy: 0.9342
+   113/112813 [..............................] - ETA: 55:40:01 - loss: 0.2549 - accuracy: 0.9325
+   114/112813 [..............................] - ETA: 55:35:23 - loss: 0.2536 - accuracy: 0.9331
+   115/112813 [..............................] - ETA: 55:32:03 - loss: 0.2523 - accuracy: 0.9337
+   116/112813 [..............................] - ETA: 55:28:04 - loss: 0.2511 - accuracy: 0.9343
+   117/112813 [..............................] - ETA: 55:18:01 - loss: 0.2497 - accuracy: 0.9348
+   118/112813 [..............................] - ETA: 55:13:02 - loss: 0.2510 - accuracy: 0.9343
+   119/112813 [..............................] - ETA: 55:05:32 - loss: 0.2514 - accuracy: 0.9338
+   120/112813 [..............................] - ETA: 55:01:22 - loss: 0.2501 - accuracy: 0.9344
+   121/112813 [..............................] - ETA: 54:57:56 - loss: 0.2512 - accuracy: 0.9339
+   122/112813 [..............................] - ETA: 54:54:51 - loss: 0.2501 - accuracy: 0.9344
+   123/112813 [..............................] - ETA: 54:51:03 - loss: 0.2505 - accuracy: 0.9339
+   124/112813 [..............................] - ETA: 54:49:20 - loss: 0.2489 - accuracy: 0.9345
+   125/112813 [..............................] - ETA: 54:44:37 - loss: 0.2499 - accuracy: 0.9340
+   126/112813 [..............................] - ETA: 54:37:41 - loss: 0.2486 - accuracy: 0.9345
+   127/112813 [..............................] - ETA: 54:41:50 - loss: 0.2473 - accuracy: 0.9350
+   128/112813 [..............................] - ETA: 54:45:19 - loss: 0.2461 - accuracy: 0.9355
+   129/112813 [..............................] - ETA: 54:38:03 - loss: 0.2467 - accuracy: 0.9351
+   130/112813 [..............................] - ETA: 54:35:12 - loss: 0.2469 - accuracy: 0.9346
+   131/112813 [..............................] - ETA: 54:31:18 - loss: 0.2458 - accuracy: 0.9351
+   132/112813 [..............................] - ETA: 54:22:46 - loss: 0.2444 - accuracy: 0.9356
+   133/112813 [..............................] - ETA: 54:17:56 - loss: 0.2461 - accuracy: 0.9352
+   134/112813 [..............................] - ETA: 54:11:37 - loss: 0.2446 - accuracy: 0.9356
+   135/112813 [..............................] - ETA: 54:09:22 - loss: 0.2485 - accuracy: 0.9343
+   136/112813 [..............................] - ETA: 54:06:00 - loss: 0.2472 - accuracy: 0.9347
+   137/112813 [..............................] - ETA: 54:05:29 - loss: 0.2458 - accuracy: 0.9352
+   138/112813 [..............................] - ETA: 54:10:47 - loss: 0.2445 - accuracy: 0.9357
+   139/112813 [..............................] - ETA: 54:04:13 - loss: 0.2444 - accuracy: 0.9353
+   140/112813 [..............................] - ETA: 53:59:18 - loss: 0.2431 - accuracy: 0.9357
+   141/112813 [..............................] - ETA: 53:57:41 - loss: 0.2417 - accuracy: 0.9362
+   142/112813 [..............................] - ETA: 53:52:10 - loss: 0.2427 - accuracy: 0.9357
